@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .created-by {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: #888;
+            background-color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            animation: pulse 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+        .created-by:hover {
+            transform: scale(1.1);
+        }
+        .created-by a {
+            color: #888;
+            text-decoration: none;
+        }
+        .created-by a:hover {
+            color: #555;
+        }
+    </style>
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="dark-mode-toggle">
+            <i id="darkModeIcon" class="fas fa-moon"></i>
+        </div>
+        <h1><span class="leaf-icon">🍃</span> Plant Analyzer</h1>
+        <div class="tabs">
+            <button id="identifyTab" class="tab-button active"><i class="fas fa-search"></i> Identify Plant</button>
+            <button id="diagnoseTab" class="tab-button"><i class="fas fa-stethoscope"></i> Diagnose Disease</button>
+        </div>
+        <div class="content">
+            <div id="identifyContent" class="tab-content active">
+                <button id="galleryIdentify" class="action-button"><i class="fas fa-images"></i> Gallery</button>
+                <button id="takePhotoIdentify" class="action-button"><i class="fas fa-camera"></i> Take Photo</button>
+                <div id="fileInfoIdentify" class="file-info">No file chosen</div>
+                <button id="identifyPlant" class="submit-button"><i class="fas fa-leaf"></i> Identify Plant</button>
+                <div id="identifyResult" class="result"></div>
+            </div>
+            <div id="diagnoseContent" class="tab-content">
+                <button id="galleryDiagnose" class="action-button"><i class="fas fa-images"></i> Gallery</button>
+                <button id="takePhotoDiagnose" class="action-button"><i class="fas fa-camera"></i> Take Photo</button>
+                <div id="fileInfoDiagnose" class="file-info">No file chosen</div>
+                <button id="diagnosePlant" class="submit-button"><i class="fas fa-microscope"></i> Diagnose Disease</button>
+                <div id="diagnoseResult" class="result"></div>
+            </div>
+        </div>
+        <div id="loadingSpinner" class="loading-spinner"></div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('deviceready', onDeviceReady, false);
+        function onDeviceReady() {
+            console.log('Cordova is ready');
+            // You can initialize your app here
+        }
+    </script>
+    <div class="created-by">
+      Created with 🌱 by <a href="https://www.instagram.com/king_togetherness?igsh=em5ianVoeDRmbnJn" target="_blank">Shlok</a>
+    </div>
+</body>
+</html>
